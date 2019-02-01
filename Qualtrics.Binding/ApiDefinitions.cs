@@ -10,6 +10,7 @@ namespace Com.Qualtrics.Digital
     // @interface InitializationResult : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol] // INTENTIONAL MODIFICATION
     interface InitializationResult
     {
         // -(NSString * _Nullable)getMessage __attribute__((warn_unused_result));
@@ -30,6 +31,7 @@ namespace Com.Qualtrics.Digital
 
     // @interface Properties : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol] // INTENTIONAL MODIFICATION
     interface Properties
     {
         // -(void)setStringWithString:(NSString * _Nonnull)string for:(NSString * _Nonnull)key;
@@ -44,6 +46,7 @@ namespace Com.Qualtrics.Digital
     // @interface Qualtrics : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol] // INTENTIONAL MODIFICATION
     interface Qualtrics
     {
         // @property (readonly, nonatomic, strong, class) Qualtrics * _Nonnull shared;
@@ -69,7 +72,9 @@ namespace Com.Qualtrics.Digital
         void EvaluateTargetingLogicWithCompletion(Action<TargetingResult> completion);
 
         // -(BOOL)handleLocalNotificationWithResponse:(UNNotificationResponse * _Nonnull)response displayOn:(UIViewController * _Nonnull)viewController __attribute__((availability(ios, introduced=10.0))) __attribute__((warn_unused_result));
+#pragma warning disable CS0618 // Type or member is obsolete  INTENTIONAL MODIFICATION
         [iOS(10, 0)]
+#pragma warning restore CS0618 // Type or member is obsolete  INTENTIONAL MODIFICATION
         [Export("handleLocalNotificationWithResponse:displayOn:")]
         bool HandleLocalNotificationWithResponse(UNNotificationResponse response, UIViewController viewController);
 
@@ -105,6 +110,7 @@ namespace Com.Qualtrics.Digital
 
     // @interface QualtricsSurveyViewController : UIViewController <WKScriptMessageHandler>
     [BaseType(typeof(UIViewController))]
+    [Protocol] // INTENTIONAL MODIFICATION
     interface QualtricsSurveyViewController : IWKScriptMessageHandler
     {
         // -(instancetype _Nonnull)initWithUrl:(NSString * _Nonnull)url __attribute__((objc_designated_initializer));
@@ -113,22 +119,23 @@ namespace Com.Qualtrics.Digital
         IntPtr Constructor(string url);
 
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-        [Export("initWithCoder:")]
-        [DesignatedInitializer]
-        IntPtr Constructor(NSCoder aDecoder);
+        //[Export ("initWithCoder:")] INTENTIONAL MODIFICATION
+        //[DesignatedInitializer] INTENTIONAL MODIFICATION
+        //IntPtr Constructor(NSCoder aDecoder);
 
         // -(void)viewDidAppear:(BOOL)animated;
         [Export("viewDidAppear:")]
         void ViewDidAppear(bool animated);
 
         // -(void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-        [Export("userContentController:didReceiveScriptMessage:")]
-        void UserContentController(WKUserContentController userContentController, WKScriptMessage message);
+        //[Export ("userContentController:didReceiveScriptMessage:")] INTENTIONAL MODIFICATION
+        //void UserContentController (WKUserContentController userContentController, WKScriptMessage message); INTENTIONAL MODIFICATION
     }
 
     // @interface TargetingResult : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol] // INTENTIONAL MODIFICATION
     interface TargetingResult
     {
         // -(NSString * _Nullable)getSurveyUrl __attribute__((warn_unused_result));
@@ -161,7 +168,7 @@ namespace Com.Qualtrics.Digital
     interface UIColor_Qualtrics_Swift_254
     {
         // -(instancetype _Nullable)initWithHexString:(NSString * _Nonnull)hexString;
-        [Export("initWithHexString:")]
-        IntPtr Constructor(string hexString);
+        //[Export ("initWithHexString:")] INTENTIONAL MODIFICATION
+        //IntPtr Constructor (string hexString); INTENTIONAL MODIFICATION
     }
 }
