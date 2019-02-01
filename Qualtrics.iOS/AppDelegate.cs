@@ -27,5 +27,13 @@ namespace Qualtrics.iOS
 
             return base.FinishedLaunching(app, options);
         }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            var sharedInstance = Com.Qualtrics.Digital.Qualtrics.Shared;
+
+            if (sharedInstance is null)
+                throw new NullReferenceException("Com.Qualtrics.Digital.Qualtrics.Shared is null");
+        }
     }
 }
