@@ -30,6 +30,8 @@ namespace Qualtrics.iOS
 
         public override void OnActivated(UIApplication uiApplication)
         {
+            var controller = new Com.Qualtrics.Digital.QualtricsSurveyViewController();
+
             var sharedInstance = Com.Qualtrics.Digital.Qualtrics.Shared;
 
             if (sharedInstance is null)
